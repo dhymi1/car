@@ -1,0 +1,19 @@
+#!/bin/bash
+#enciende.sh
+
+#Exportamos el PIN deseado
+echo 23 > /sys/class/gpio/export
+
+#Establecemos la direccion (salida o entrada)
+echo out > /sys/class/gpio/gpio23/direction
+
+#Activamos la salida del rele dandole un valor de 1 al bit
+echo 1 > /sys/class/gpio/gpio23/value
+sleep 0.7
+#apaga.sh
+
+#Apagamos la salida del rele
+echo 0 > /sys/class/gpio/gpio23/value
+
+#Liberamos el PIN asociado
+echo 23 > /sys/class/gpio/unexport
