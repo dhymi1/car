@@ -1,0 +1,32 @@
+#!/bin/bash
+#parpadea.sh
+
+#Exportamos el PIN deseado
+echo 16 > /sys/class/gpio/export
+
+#Establecemos la direccion (salida o entrada)
+echo out > /sys/class/gpio/gpio16/direction
+
+#Activamos la salida del rele dandole un valor de 1 al bit, y lo desactivamos 5 veces
+echo 1 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 0 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 0 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 0 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 0 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 1 > /sys/class/gpio/gpio16/value
+sleep 0.1
+echo 0 > /sys/class/gpio/gpio16/value
+
+#Liberamos el PIN asociado
+echo 16 > /sys/class/gpio/unexport
